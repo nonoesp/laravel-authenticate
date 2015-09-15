@@ -1,0 +1,24 @@
+{
+    "name": "nonoesp/authenticate",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nono Martínez Alonso",
+            "email": "mundowarezweb@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations",
+            "src/controllers"
+        ],
+        "psr-0": {
+            "Nonoesp\\Authenticate\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
