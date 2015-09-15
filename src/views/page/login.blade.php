@@ -3,7 +3,10 @@
 <?php
 	$shouldHideMenu = true;
 	$site_title = 'Log In — Nono Martínez Alonso';
-	$title = 'Welcome back, friend.';
+
+	if(!$title = Session::get('title')) {
+		$title = 'Welcome back, friend.';	
+	}
 
 	$error = Session::get('error');
 ?>

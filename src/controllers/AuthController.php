@@ -27,7 +27,7 @@ class AuthController extends \BaseController {
 	public function getLogout()
 	{
 		\Auth::logout();
-		return \Redirect::route('getLogin');
+		return \Redirect::route('getLogin')->with('title', 'See you later!');
 	}
 
 	public function getDashboard() {
