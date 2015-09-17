@@ -8,7 +8,9 @@
 
 @section('content')
 
-	<p>This is the dashboard. Check out how AR-MA's {{ HTML::link('/', 'homepage') }} is looking.</p>
+	<p>This is the dashboard.</p>
+
+	<p>Check out how AR-MA's {{ HTML::link('/', 'homepage') }} is looking.</p>
 
 	<p>You can logout {{ HTML::link('/logout', 'here') }}.</p>
 
