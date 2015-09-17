@@ -3,6 +3,7 @@
 <?php
 	$shouldHideMenu = true;
 	$site_title = 'Log In — Nono Martínez Alonso';
+	$o_band_class = '';
 
 	if(!$title = Session::get('title')) {
 		$title = 'Welcome back, friend.';	

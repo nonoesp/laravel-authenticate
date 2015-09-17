@@ -8,7 +8,7 @@
 
 @section('content')
 
-	<p>Content here.</p>
+	<p>This is the dashboard.</p>
 
 	<p>You can logout {{ HTML::link('/logout', 'here') }}.</p>
 
