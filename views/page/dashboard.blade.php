@@ -10,7 +10,7 @@
 
 	<p>This is the dashboard.</p>
 
-	<p>Check out how AR-MA's {{ HTML::link('/', 'homepage') }} is looking.</p>
+	<p>Check out how the {{ HTML::link('/', 'homepage') }} is looking.</p>
 
 	<p>You can logout {{ HTML::link('/'.config('authenticate.exit'), 'here') }}.</p>
 
