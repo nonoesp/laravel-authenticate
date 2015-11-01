@@ -1,6 +1,3 @@
 <?php namespace Nonoesp\Authenticate;
  
-class Authenticate {
- 
-
-}
+class Authenticate { }

@@ -6,4 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Nonoesp\\Authenticate\\Controllers\\AuthController' => $baseDir . '/src/controllers/AuthController.php',
+    'Nonoesp\\Authenticate\\Controllers\\Controller' => $baseDir . '/src/controllers/Controller.php',
 );

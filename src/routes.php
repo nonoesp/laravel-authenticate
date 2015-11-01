@@ -1,10 +1,10 @@
 <?php
 
 namespace Nonoesp\Authenticate;
-use Route;
-use Auth;
-use Redirect;
-use Config;
+use Route,
+    Auth,
+    Redirect,
+    Config;
 
 /*----------------------------------------------------------------*/
 /* AuthController
