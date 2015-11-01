@@ -10,7 +10,8 @@
     ],
     "autoload": {
         "classmap": [
-
+            "src/migrations",
+            "src/controllers"
         ],
         "psr-4": {
             "Nonoesp\\Authenticate\\": "src/"
