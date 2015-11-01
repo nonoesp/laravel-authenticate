@@ -12,6 +12,6 @@
 
 	<p>Check out how AR-MA's {{ HTML::link('/', 'homepage') }} is looking.</p>
 
-	<p>You can logout {{ HTML::link('/logout', 'here') }}.</p>
+	<p>You can logout {{ HTML::link('/'.config('authenticate.exit'), 'here') }}.</p>
 
 @endsection

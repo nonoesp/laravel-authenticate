@@ -2,6 +2,28 @@
 
 Extremely simple way to authenticate in Laravel.
 
+## Usage
+
+
+* Install illuminate/html and add its service and provider.
+
+	composer require nonoesp/thinker:dev
+
+	php artisan vendor:publish --provider="Nonoesp\Authenticate\AuthenticateServiceProvider" --tag=middleware
+
+Add this middleware to the routes you want to restrict to logged-user access.
+
+Inside `app/Http/Kernel.php` add the following:
+
+```php
+protected $routeMiddleware = [
+    […]
+    'login' => \Arma\Http\Middleware\LoginMiddleware::class,
+];
+```
+
+*Deprecated notes from Laravel 4 version.*
+
 ## Installation
 
 Run `compose require nonoesp/authenticate:dev-master`

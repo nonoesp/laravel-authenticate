@@ -1,26 +1,31 @@
-<?php namespace Nonoesp\Authenticate;
+<?php namespace Nonoesp\Authenticate\Controllers;
 
+use Illuminate\Http\Request;
+use Arma\Http\Requests;
+use Arma\Http\Controllers\Controller;
+use Arma\User;
+use Redirect;
 
-class AuthController extends \BaseController {
+class AuthController extends Controller {
 
 	public function getLogin()
 	{
 		if(\Auth::check()) {
-			return \Redirect::route('getDashboard');
+			return redirect(config('authenticate.destination'));
 		}
-		return \View::make('authenticate::page.login')->with('auth_url', 'login');
+		return view('authenticate::page.login')->with('auth_url', config('authenticate.entrance'));
 	}
 
 	public function postLogin()
 	{
 		$email = \Input::get('email');
 		$password = \Input::get('password');
-		$user = \User::whereEmail($email)->first();
+		$user = User::whereEmail($email)->first();
 
 		if(\Auth::attempt(array('email' => $email, 'password' => $password), true)) {
 			// Save valid email and redirect to dashboard
 			\Session::put('email', $email);
-			return \Redirect::intended(\Config::get('authenticate::default-access'));
+			return \Redirect::intended(config('authenticate.destination'));
 		} else {
 			return \Redirect::route('getLogin')->with(array('error' => 'INVALID_CREDENTIALS', 'email' => $email));
 		}
@@ -33,6 +38,6 @@ class AuthController extends \BaseController {
 	}
 
 	public function getDashboard() {
-		return \View::make('authenticate::page.dashboard');
+		return view('authenticate::page.dashboard');
 	}
 }
