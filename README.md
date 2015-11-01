@@ -1,6 +1,6 @@
-# laravel-authenticate
+# Authentication System for Laravel 5
 
-Extremely simple way to authenticate in Laravel.
+Extremely simple way to authenticate in Laravel 5.
 
 ## Usage
 
