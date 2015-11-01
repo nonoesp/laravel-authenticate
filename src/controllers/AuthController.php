@@ -7,6 +7,7 @@ use Redirect,
     Input,
     Session;
 
+
 class AuthController extends Controller {
 
 	public function getLogin()
