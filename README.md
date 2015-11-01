@@ -4,8 +4,7 @@ Extremely simple way to authenticate in Laravel.
 
 ## Usage
 
-
-* Install illuminate/html and add its service and provider.
+Install illuminate/html and add its service and provider.
 
 	composer require nonoesp/thinker:dev
 
