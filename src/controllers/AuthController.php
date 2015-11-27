@@ -5,7 +5,8 @@ use User; // Must be defined in your aliases
 use Redirect,
     Auth,
     Input,
-    Session;
+    Session,
+    URL;
 
 
 class AuthController extends Controller {
@@ -35,8 +36,21 @@ class AuthController extends Controller {
 
 	public function getLogout()
 	{
+		// Auth
 		Auth::logout();
-		return Redirect::route('getLogin')->with('title', 'See you later!');
+
+		// Twitter
+		Session::forget('access_token');
+	    Session::forget('twitter_handle');
+	    Session::forget('twitter_intended');
+
+	    $previous = URL::previous();
+	    
+	    if($previous == URL::to('/dashboard')) {
+			return Redirect::route('getLogin')->with('title', 'See you later!');
+	    }
+
+	    return Redirect::to($previous);
 	}
 
 	public function getDashboard() {

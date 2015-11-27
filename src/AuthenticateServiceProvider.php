@@ -47,6 +47,7 @@ class AuthenticateServiceProvider extends ServiceProvider
     {
         // Register Controller
         $this->app->make('Nonoesp\Authenticate\Controllers\AuthController');
+        $this->app->make('Nonoesp\Authenticate\Controllers\TwitterController');
 
         // Merge Config
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'authenticate');

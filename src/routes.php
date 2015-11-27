@@ -4,7 +4,11 @@ namespace Nonoesp\Authenticate;
 use Route,
     Auth,
     Redirect,
-    Config;
+    Config,
+    Session,
+    HTML,
+    Article,
+    Markdown;
 
 /*----------------------------------------------------------------*/
 /* AuthController
@@ -34,5 +38,25 @@ Route::filter('is_admin', function()
       }
     } else {
         return Redirect::guest(config('authenticate.entrance'));
+    }
+});
+
+/*----------------------------------------------------------------*/
+/* TwitterController
+/*----------------------------------------------------------------*/
+
+Route::get('twitter/login', ['as' => 'twitter.login', 'uses' => 'Nonoesp\Authenticate\Controllers\TwitterController@login']);
+Route::get('twitter/callback', ['as' => 'twitter.callback', 'uses' => 'Nonoesp\Authenticate\Controllers\TwitterController@callback']);
+Route::get('twitter/error', ['as' => 'twitter.error', 'uses' => 'Nonoesp\Authenticate\Controllers\TwitterController@error']);
+
+/*----------------------------------------------------------------*/
+
+// Temporary URL
+
+Route::get('twitter/data', function(){
+    if(Session::get('twitter_handle')) {
+      echo "Hi, ". Session::get('twitter_handle') .'!';      
+    } else {
+      echo "You are not logged! ".HTML::link('/twitter/login', "log in").".";
     }
 });

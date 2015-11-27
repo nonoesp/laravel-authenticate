@@ -1,8 +1,11 @@
 <?php
-namespace Arma\Http\Middleware;
+namespace App\Http\Middleware;
 use Closure;
 use Auth;
 use Redirect;
+use Session;
+use URL;
+
 class LoginMiddleware
 {
     /**
@@ -15,6 +18,7 @@ class LoginMiddleware
     public function handle($request, Closure $next)
     {
         if(!Auth::check()) {
+            Session::put('twitter_intended', URL::current());
             return Redirect::guest( '/'.config('authenticate.entrance') );
         }
         return $next($request);
