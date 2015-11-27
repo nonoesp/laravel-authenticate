@@ -10,6 +10,8 @@ Install illuminate/html and add its service and provider.
 
 	php artisan vendor:publish --provider="Nonoesp\Authenticate\AuthenticateServiceProvider" --tag=middleware
 
+For some reason, this command does not seem to work anymore in Laravel, I am currently using `php artisan vendor:publish --tag=middleware` — which is annoying because if it clashes with other packages or providers, it will publish their assets too.
+
 Add this middleware to the routes you want to restrict to logged-user access.
 
 Inside `app/Http/Kernel.php` add the following:
