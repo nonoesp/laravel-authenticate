@@ -27,6 +27,7 @@ class AuthController extends Controller {
 
 		if(Auth::attempt(array('email' => $email, 'password' => $password), true)) {
 			// Save valid email and redirect to dashboard
+			if($twitter_handle = $user->twitter) Session::put('twitter_handle', $twitter_handle);
 			Session::put('email', $email);
 			return Redirect::intended(config('authenticate.destination'));
 		} else {

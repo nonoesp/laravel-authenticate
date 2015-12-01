@@ -55,7 +55,7 @@ Route::get('twitter/error', ['as' => 'twitter.error', 'uses' => 'Nonoesp\Authent
 
 Route::get('twitter/data', function(){
     if(Session::get('twitter_handle')) {
-      echo "Hi, ". Session::get('twitter_handle') .'!';      
+      echo "Hi, ". Session::get('twitter_handle') .'! '.HTML::link('/logout', "logout");      
     } else {
       echo "You are not logged! ".HTML::link('/twitter/login', "log in").".";
     }
