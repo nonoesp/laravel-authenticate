@@ -32,7 +32,7 @@ class TwitterController extends Controller {
 	    //return;
 
 	    if(URL::previous() != URL::to(config("authentication.entrance"))) {
-	    	Session::put('twitter_intended', URL::previous());	
+	    	Session::put('twitter_intended', Session::get('url.intended'));	
 	    }
 	    
 

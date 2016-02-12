@@ -26,17 +26,15 @@
 			{{ Form::email('email', Session::get('email'), array('placeholder' => 'Email')) }}
 			{{ Form::password('password', array('placeholder' => 'Password')) }}		
 
-			{{ Form::submit('Log In') }}
+			{{ Form::submit('Sign in') }}
+
+			<a href="/twitter/login">{{ Form::button('Sign in with Twitter', array('class' => 'button--twitter')) }}</a>
 			
 		{{ Form::close(); }}
 
 		{{-- View::make('partials.footerSimple') --}}
 
-		{{ HTML::link('/twitter/login', 'Log in with Twitter') }}
-
 		<br><br>
-
-		{{ Session::get('twitter_intended') }}
 
 	@else
 
