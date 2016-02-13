@@ -18,23 +18,13 @@ class TwitterController extends Controller {
 	    $sign_in_twitter = true;
 	    $force_login = false;
 
-	    $request = new Request();
-/*
-	    $previous = URL::previous();
-	    $login = URL::to(config("authenticate.entrance"));
-
-	    echo "previous: ".$previous;
-	    echo '<br><br>';
-	    echo "login: ".$login;
-	    echo '<br><br>';
-	    echo "intended: ".Session::get('twitter_intended');
-*/
-	    //return;
-
-	    if(URL::previous() != URL::to(config("authentication.entrance"))) {
-	    	Session::put('twitter_intended', Session::get('url.intended'));	
-	    }
-	    
+	    //$request = new Request();
+		
+		$twitter_intended = URL::previous();
+		$URL_intended = Session::get('url.intended');
+		if($URL_intended != '') {
+			$twitter_intended = $URL_intended;
+		}
 
 	    // Skip login with Twitter if user already logged in another page
 	    if(Session::get('twitter_handle')) {
