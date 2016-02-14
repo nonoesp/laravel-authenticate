@@ -12,18 +12,34 @@ use Auth;
 
 class TwitterController extends Controller {
 
-	public function login()
+	public function login(Request $request)
 	{
 	 	// your SIGN IN WITH TWITTER button should point to this route
 	    $sign_in_twitter = true;
-	    $force_login = false;
+	    $force_login = false;		
 
-	    //$request = new Request();
-		
-		$twitter_intended = URL::previous();
-		$URL_intended = Session::get('url.intended');
-		if($URL_intended != '') {
-			$twitter_intended = $URL_intended;
+		$twitter_intended = Session::get('url.intended');		
+		$URL_previous = \URL::previous();
+		$path_previous = str_replace('/', '', parse_url(\URL::previous())['path']);
+		$auth_entrance = config('authenticate.entrance');
+
+		if($path_previous != $auth_entrance) {
+			$twitter_intended = $URL_previous;
+		}
+
+		Session::put('twitter_intended', $twitter_intended);	
+
+		if(false) { // Temporary testing
+			echo $request->getHttpHost();
+			echo '<br><br>';
+			echo 'url.intended: '.Session::get('url.intended');
+			echo '<br><br>';
+			echo 'entrance: ('. $auth_entrance .')';			
+			echo '<br><br>';
+			echo '$path_previous: ('.$path_previous.')';
+			echo '<br><br>';
+			echo 'twitter_intended: '.Session::get('twitter_intended');			
+			return '';	
 		}
 
 	    // Skip login with Twitter if user already logged in another page
