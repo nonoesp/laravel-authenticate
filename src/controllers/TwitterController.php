@@ -29,19 +29,6 @@ class TwitterController extends Controller {
 
 		Session::put('twitter_intended', $twitter_intended);	
 
-		if(false) { // Temporary testing
-			echo $request->getHttpHost();
-			echo '<br><br>';
-			echo 'url.intended: '.Session::get('url.intended');
-			echo '<br><br>';
-			echo 'entrance: ('. $auth_entrance .')';			
-			echo '<br><br>';
-			echo '$path_previous: ('.$path_previous.')';
-			echo '<br><br>';
-			echo 'twitter_intended: '.Session::get('twitter_intended');			
-			return '';	
-		}
-
 	    // Skip login with Twitter if user already logged in another page
 	    if(Session::get('twitter_handle')) {
 	    	return Redirect::back();
