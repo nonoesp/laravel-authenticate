@@ -96,6 +96,7 @@ class TwitterController extends Controller {
 	            }
 
 	            Session::put('twitter_handle', $credentials->screen_name);
+	            Session::put('twitter_image', str_replace('_normal','', $credentials->profile_image_url));	            
 	            Session::put('access_token', $token);
 
 	            $destination = config("authenticate.destination"); // Default destination

@@ -43,6 +43,7 @@ class AuthController extends Controller {
 		// Twitter
 		Session::forget('access_token');
 	    Session::forget('twitter_handle');
+	    Session::forget('twitter_image');	    
 	    Session::forget('twitter_intended');
 
 	    $previous = URL::previous();
