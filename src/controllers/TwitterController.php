@@ -92,7 +92,7 @@ class TwitterController extends Controller {
 	            // Auth::login($user) should do the trick.
 
 	            if($user = User::whereTwitter($credentials->screen_name)->first()) {
-	              Auth::login($user);
+	              Auth::login($user, true);
 	            }
 
 	            Session::put('twitter_handle', $credentials->screen_name);
