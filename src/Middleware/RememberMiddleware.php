@@ -17,7 +17,7 @@ class RememberMiddleware
     {   
         if(Auth::check() && $user = Auth::user()) {
             // User is logged in via remember (restore session twitter values)
-            Authenticate::setTwitterHandle($user->twitter);
+            Authenticate::setTwitterSession($user->twitter);
         } else {
             // User isn't logged in
         }
