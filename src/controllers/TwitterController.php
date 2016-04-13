@@ -91,13 +91,20 @@ class TwitterController extends Controller {
 	            // This is also the moment to log in your users if you're using Laravel's Auth class
 	            // Auth::login($user) should do the trick.
 
-	            if($user = User::whereTwitter($credentials->screen_name)->first()) {
+	        	$twitter_handle = $credentials->screen_name;
+	        	$twitter_image = str_replace('_normal','', $credentials->profile_image_url);
+	        	$access_token = $token;
+
+	            if($user = User::whereTwitter($twitter_handle)->first()) {
 	              Auth::login($user, true);
+	              // Store the image to retrieve via remember me
+	              $user->twitter_image = $twitter_image;
+	              $user->save();
 	            }
 
-	            Session::put('twitter_handle', $credentials->screen_name);
-	            Session::put('twitter_image', str_replace('_normal','', $credentials->profile_image_url));	            
-	            Session::put('access_token', $token);
+	            Session::put('twitter_handle', $twitter_handle);
+	            Session::put('twitter_image', $twitter_image);
+	            Session::put('access_token', $access_token);
 
 	            $destination = config("authenticate.destination"); // Default destination
 
