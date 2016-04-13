@@ -12,11 +12,16 @@ Install illuminate/html and add its service and provider.
 
 For some reason, this command does not seem to work anymore in Laravel, I am currently using `php artisan vendor:publish --tag=middleware` — which is annoying because if it clashes with other packages or providers, it will publish their assets too.
 
-Add this middleware to the routes you want to restrict to logged-user access.
+Use the `LoginMiddleware` to the routes you want to restrict to logged-user access.
 
-Inside `app/Http/Kernel.php` add the following:
+Inside `app/Http/Kernel.php` add the following to create the `LoginMiddleware` alias, and to make the `RememberMiddleware` run before every request:
 
 ```php
+protected $middleware = [
+    […]
+	\App\Http\Middleware\RememberMiddleware::class,
+];
+
 protected $routeMiddleware = [
     […]
     'login' => \Arma\Http\Middleware\LoginMiddleware::class,
@@ -43,4 +48,4 @@ Thinker is licensed under the MIT license. (http://opensource.org/licenses/MIT)
 
 ## Me
 
-I tweet at [@nonoesp](http://www.twitter.com/nonoesp) and blog at [nono.ma/says](http://nono.ma/says). If you use this package, I would love to hear about it. Thanks!
+I'm [Nono Martínez Alonso](http://nono.ma), a multi-disciplinary architect. I tweet at [@nonoesp](http://www.twitter.com/nonoesp) and write at [Getting Simple](http://gettingsimple.com/). If you use this package, I would love to hear about it. Thanks!
