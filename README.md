@@ -24,7 +24,7 @@ protected $middleware = [
 
 protected $routeMiddleware = [
     […]
-    'login' => \Arma\Http\Middleware\LoginMiddleware::class,
+    'login' => \App\Http\Middleware\LoginMiddleware::class,
 ];
 ```
 
