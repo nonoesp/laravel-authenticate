@@ -29,6 +29,7 @@ Route::get('logout', array('as' => 'getLogout', 'uses' => 'Nonoesp\Authenticate\
 Route::get('dashboard', array('before' => 'is_admin', 'as' => 'getDashboard', 'uses' => 'Nonoesp\Authenticate\Controllers\AuthController@getDashboard'));
 
 // Filter
+/*
 Route::filter('is_admin', function()
 {
   if(Auth::check()) {
@@ -39,7 +40,7 @@ Route::filter('is_admin', function()
     } else {
         return Redirect::guest(config('authenticate.entrance'));
     }
-});
+});*/
 
 /*----------------------------------------------------------------*/
 /* TwitterController
