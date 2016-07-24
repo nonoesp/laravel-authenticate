@@ -58,17 +58,15 @@ Inside `app/Http/Kernel.php` add the following to create the `LoginMiddleware` a
 
 ```php
 protected $middleware = [
-	'web' => [
-			///
-			\App\Http\Middleware\NONRememberMiddleware::class,
-			///
-	]
+		/// ...
+		\App\Http\Middleware\NONRememberMiddleware::class,
+		/// ...
 ];
 
 protected $routeMiddleware = [
-			///
-			'login' => \App\Http\Middleware\NONLoginMiddleware::class,
-			///
+		/// ...
+		'login' => \App\Http\Middleware\NONLoginMiddleware::class,
+		/// ...
 ];
 ```
 
