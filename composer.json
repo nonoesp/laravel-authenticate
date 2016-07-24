@@ -18,6 +18,7 @@
     },
     "minimum-stability" : "dev",
     "require": {
-        "illuminate/support": "~5"
+        "illuminate/support": "~5",
+        "thujohn/twitter": "~2.0"
     }
 }
