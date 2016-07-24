@@ -6,7 +6,7 @@ use Redirect;
 use Session;
 use URL;
 
-class LoginMiddleware
+class NONLoginMiddleware
 {
     /**
      * Handle an incoming request.

@@ -4,7 +4,7 @@ use Closure;
 use Auth;
 use Authenticate;
 
-class RememberMiddleware
+class NONRememberMiddleware
 {
     /**
      * Handle an incoming request.

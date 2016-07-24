@@ -30,9 +30,7 @@
 
 			<a href="/twitter/login">{{ Form::button('Sign in with Twitter', array('class' => 'button--twitter')) }}</a>
 			
-		{{ Form::close(); }}
-
-		{{-- View::make('partials.footerSimple') --}}
+		{{ Form::close() }}
 
 		<br><br>
 

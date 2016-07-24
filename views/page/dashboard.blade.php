@@ -10,8 +10,8 @@
 
 	<p>This is the dashboard.</p>
 
-	<p>Check out how the {{ HTML::link('/', 'homepage') }} is looking.</p>
+	<p>Check out how the {{ Html::link('/', 'homepage') }} is looking.</p>
 
-	<p>You can logout {{ HTML::link('/'.config('authenticate.exit'), 'here') }}.</p>
+	<p>You can logout {{ Html::link('/'.config('authenticate.exit'), 'here') }}.</p>
 
 @endsection

@@ -28,9 +28,11 @@
 <div class="[ o-band  {{ $o_band_class or 'o-band--padding-footer' }} ]">
 	<div class="[ o-wrap  o-wrap--tiny ]">
 
+{{--
 	@if(!isset($shouldHideMenu))
-		{{ View::make('admin.partials.menu') }}
+		{!! View::make('admin.partials.menu') !!}
 	@endif
+--}}
 
 	<h3 class="[ c-admin__title ] [ u-border-bottom ]">{{ $title or 'Admin' }}</h3>
 

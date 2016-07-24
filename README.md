@@ -1,38 +1,82 @@
 # Authentication System for Laravel 5
 
-Extremely simple way to authenticate for Laravel 5.2
-
-## Usage
-
-Install illuminate/html and add its service and provider.
-
-	composer require nonoesp/thinker:dev
-
-	php artisan vendor:publish --provider="Nonoesp\Authenticate\AuthenticateServiceProvider" --tag=middleware
-
-Use the `LoginMiddleware` to the routes you want to restrict to logged-user access.
-
-Inside `app/Http/Kernel.php` add the following to create the `LoginMiddleware` alias, and to make the `RememberMiddleware` run before every request:
-
-```php
-protected $middleware = [
-    […]
-	\App\Http\Middleware\RememberMiddleware::class,
-];
-
-protected $routeMiddleware = [
-    […]
-    'login' => \App\Http\Middleware\LoginMiddleware::class,
-];
-```
-
-*Deprecated notes from Laravel 4 version.*
+Extremely simple way to authenticate for Laravel 5.2.
 
 ## Installation
 
-Run `compose require nonoesp/authenticate:dev-master`
+Begin by installing this package through Composer. Edit your project’s `composer.json` file to require `nonoesp/authenticate`.
 
-Add `'Nonoesp/Authenticate/AuthenticateServiceProvider',` to `providers` in `/app/config/app.php`
+```
+"require": {
+	"nonoesp/authenticate": "5.2.*"
+}
+```
+
+Next, update Composer from the Terminal:
+
+```
+composer update
+```
+
+Next, add the new providers to the `providers` array of `config/app.php`:
+
+```
+	'providers' => [
+		// ...
+		// nonoesp/authenticate
+		Nonoesp\Authenticate\AuthenticateServiceProvider::class,          
+		Thujohn\Twitter\TwitterServiceProvider::class,
+		Collective\Html\HtmlServiceProvider::class,
+		// ...
+	],
+```
+
+Then, add the class aliases to the `aliases` array of `config/app.php`:
+
+```
+	'aliases' => [
+		// ...
+		// nonoesp/authenticate
+		'Authenticate' => Nonoesp\Authenticate\Facades\Authenticate::class,
+		'Twitter'   => Thujohn\Twitter\Facades\Twitter::class,
+		'Form' => Collective\Html\FormFacade::class,
+		'Html' => Collective\Html\HtmlFacade::class, 
+		'Input' => Illuminate\Support\Facades\Input::class,     
+		// ...
+	],
+```
+
+Next, publish the package’s middlewares and add them to the Kernel.php
+
+```
+php artisan vendor:publish --provider="Nonoesp\Authenticate\AuthenticateServiceProvider" --tag=middleware
+```
+
+Use the `NONLoginMiddleware` to the routes you want to restrict to logged-user access.
+
+Inside `app/Http/Kernel.php` add the following to create the `LoginMiddleware` alias, and to make the `NONRememberMiddleware` run before every request:
+
+```php
+protected $middleware = [
+	'web' => [
+			///
+			\App\Http\Middleware\NONRememberMiddleware::class,
+			///
+	]
+];
+
+protected $routeMiddleware = [
+			///
+			'login' => \App\Http\Middleware\NONLoginMiddleware::class,
+			///
+];
+```
+
+A dependency of this package is `thujon/twitter`, so you will have to publish its config and add your Twitter credentials to `config/ttwitter.php` if you want to be able to log in with Twitter.
+
+```
+php artisan vendor:publish --provider="Thujohn\Twitter\TwitterServiceProvider"
+```
 
 ## Publish Package Assets while Developing in the Workbench
 

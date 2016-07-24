@@ -12,7 +12,7 @@ class Authenticate {
 		}
 	}
 
-	public static function setTwitterHandle($twitter_handle) {
+	public static function setTwitterSession($twitter_handle) {
 		Session::put('twitter_handle', $twitter_handle);
 		if($user = Auth::user()) {
 			Session::put('twitter_image', $user->twitter_image);
