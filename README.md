@@ -2,6 +2,8 @@
 
 Extremely simple way to authenticate in Laravel 5.
 
+This branch supports Laravel 5.1.
+
 ## Usage
 
 Install illuminate/html and add its service and provider.
