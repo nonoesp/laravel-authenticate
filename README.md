@@ -57,10 +57,12 @@ Use the `NONLoginMiddleware` to the routes you want to restrict to logged-user a
 Inside `app/Http/Kernel.php` add the following to create the `LoginMiddleware` alias, and to make the `NONRememberMiddleware` run before every request:
 
 ```php
-protected $middleware = [
-		/// ...
-		\App\Http\Middleware\NONRememberMiddleware::class,
-		/// ...
+protected $middlewareGroups = [
+		'web' => [
+			/// ...
+			\App\Http\Middleware\NONRememberMiddleware::class,
+			/// ...
+		],
 ];
 
 protected $routeMiddleware = [
