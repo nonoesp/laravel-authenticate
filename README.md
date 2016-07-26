@@ -81,12 +81,6 @@ A dependency of this package is `thujon/twitter`, so you will have to publish it
 php artisan vendor:publish --provider="Thujohn\Twitter\TwitterServiceProvider"
 ```
 
-## Publish Package Assets while Developing in the Workbench
-
-The following command will copy your assets into `/public/packages/vendor/package/`. Development should be continued on the workbench. Then you can run the command again if you want to update the previously published assets.
-
-`php artisan asset:publish --bench="vendor/package"`
-
 ## License
 
 Authenticate is licensed under the MIT license. (http://opensource.org/licenses/MIT)
