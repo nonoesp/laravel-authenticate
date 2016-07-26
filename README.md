@@ -25,6 +25,7 @@ Next, add the new providers to the `providers` array of `config/app.php`:
 		// ...
 		// nonoesp/authenticate
 		Nonoesp\Authenticate\AuthenticateServiceProvider::class,          
+		Nonoesp\Thinker\ThinkerServiceProvider::class,  
 		Thujohn\Twitter\TwitterServiceProvider::class,
 		Collective\Html\HtmlServiceProvider::class,
 		// ...
@@ -38,6 +39,7 @@ Then, add the class aliases to the `aliases` array of `config/app.php`:
 		// ...
 		// nonoesp/authenticate
 		'Authenticate' => Nonoesp\Authenticate\Facades\Authenticate::class,
+		'Thinker' => Nonoesp\Thinker\Facades\Thinker::class,
 		'Twitter'   => Thujohn\Twitter\Facades\Twitter::class,
 		'Form' => Collective\Html\FormFacade::class,
 		'Html' => Collective\Html\HtmlFacade::class, 
