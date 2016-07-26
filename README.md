@@ -43,7 +43,8 @@ Then, add the class aliases to the `aliases` array of `config/app.php`:
 		'Twitter'   => Thujohn\Twitter\Facades\Twitter::class,
 		'Form' => Collective\Html\FormFacade::class,
 		'Html' => Collective\Html\HtmlFacade::class, 
-		'Input' => Illuminate\Support\Facades\Input::class,     
+		'Input' => Illuminate\Support\Facades\Input::class,
+		'User' => 'App\User',     
 		// ...
 	],
 ```
