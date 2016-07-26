@@ -1,4 +1,4 @@
-# Authentication System for Laravel 5
+# An Authentication System for Laravel 5
 
 Extremely simple way to authenticate for Laravel 5.2.
 
@@ -89,8 +89,8 @@ The following command will copy your assets into `/public/packages/vendor/packag
 
 ## License
 
-Thinker is licensed under the MIT license. (http://opensource.org/licenses/MIT)
+Authenticate is licensed under the MIT license. (http://opensource.org/licenses/MIT)
 
 ## Me
 
-I'm [Nono Martínez Alonso](http://nono.ma), a multi-disciplinary architect. I tweet at [@nonoesp](http://www.twitter.com/nonoesp) and write at [Getting Simple](http://gettingsimple.com/). If you use this package, I would love to hear about it. Thanks!
+I'm [Nono Martínez Alonso](http://nono.ma), an computational designer with a penchant for design, code, and simplicity. I tweet at [@nonoesp](http://www.twitter.com/nonoesp) and write at [Getting Simple](http://gettingsimple.com/). If you use this package, I would love to hear about it. Thanks!
