@@ -57,7 +57,24 @@ php artisan vendor:publish --provider="Nonoesp\Authenticate\AuthenticateServiceP
 
 Use the `NONLoginMiddleware` to the routes you want to restrict to logged-user access.
 
-Inside `app/Http/Kernel.php` add the following to create the `LoginMiddleware` alias, and to make the `NONRememberMiddleware` run before every request:
+Inside `app/Http/Kernel.php` add the following to create the `NONLoginMiddleware` alias, and to make the `NONRememberMiddleware` run before every request:
+
+New:
+
+```php
+protected $middleware = [
+			/// ...
+			\App\Http\Middleware\NONRememberMiddleware::class,
+];
+
+protected $routeMiddleware = [
+		/// ...
+		'login' => \App\Http\Middleware\NONLoginMiddleware::class,
+		/// ...
+];
+```
+
+Deprecated:
 
 ```php
 protected $middlewareGroups = [
@@ -73,6 +90,13 @@ protected $routeMiddleware = [
 		'login' => \App\Http\Middleware\NONLoginMiddleware::class,
 		/// ...
 ];
+```
+
+(Check if it is needed to add the following to $middleware:)
+
+```
+\Illuminate\Session\Middleware\StartSession::class, // added by Nono
+\Illuminate\View\Middleware\ShareErrorsFromSession::class, // added by Nono
 ```
 
 A dependency of this package is `thujon/twitter`, so you will have to publish its config and add your Twitter credentials to `config/ttwitter.php` if you want to be able to log in with Twitter.
