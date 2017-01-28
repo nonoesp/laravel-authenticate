@@ -19,7 +19,7 @@
     "minimum-stability" : "dev",
     "require": {
         "illuminate/support": "~5",
-        "nonoesp/thinker": "5.2.*",
+        "nonoesp/thinker": "5.4.*",
         "thujohn/twitter": "~2.0",
         "laravelcollective/html": "*"
     }

@@ -1,6 +1,7 @@
 <?php namespace Nonoesp\Authenticate;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Contracts\Container\Container;
 
 class AuthenticateServiceProvider extends ServiceProvider
 {
@@ -22,7 +23,7 @@ class AuthenticateServiceProvider extends ServiceProvider
         $this->publishes([__DIR__.'/Middleware' => $publish_path_middleware,], 'middleware');
         $this->publishes([__DIR__.'/../lang' => $publish_path_lang,], 'lang');
         $this->publishes([__DIR__.'/../config/config.php' => $publish_path_config,], 'config');
-        
+
         // Views
         if (is_dir($publish_path_views)) {
             $this->loadViewsFrom($publish_path_views, 'authenticate'); // Load published views
@@ -62,9 +63,16 @@ class AuthenticateServiceProvider extends ServiceProvider
         });
 
         // Return alias
-        $this->app['authenticate'] = $this->app->share(function($app)
-        {
-        return new Authenticate;
-        });
+        // $this->app['authenticate'] = $this->app->share(function($app)
+        // {
+        // return new Authenticate;
+        // });
+
+        $this->app->singleton('authenticate', function (Container $app) {
+               return new Authenticate();
+           });
+
+        $this->app->alias('authenticate', Authenticate::class);
+
     }
 }

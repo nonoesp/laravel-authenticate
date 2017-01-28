@@ -1,6 +1,6 @@
 # An Authentication System for Laravel 5
 
-Extremely simple way to authenticate for Laravel 5.2.
+Extremely simple way to authenticate with support for Laravel 5.4.
 
 ## Installation
 
@@ -8,7 +8,7 @@ Begin by installing this package through Composer. Edit your project’s `compos
 
 ```
 "require": {
-	"nonoesp/authenticate": "5.2.*"
+	"nonoesp/authenticate": "5.4.*"
 }
 ```
 
@@ -42,7 +42,7 @@ Then, add the class aliases to the `aliases` array of `config/app.php`:
 		'Thinker' => Nonoesp\Thinker\Facades\Thinker::class,
 		'Twitter'   => Thujohn\Twitter\Facades\Twitter::class,
 		'Form' => Collective\Html\FormFacade::class,
-		'Html' => Collective\Html\HtmlFacade::class, 
+		'Html' => Collective\Html\HtmlFacade::class,
 		'Input' => Illuminate\Support\Facades\Input::class,
 		'User' => 'App\User',     
 		// ...
