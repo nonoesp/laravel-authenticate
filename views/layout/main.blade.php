@@ -1,3 +1,10 @@
+<?php
+	$space_typekit = Config::get('space.typekit');
+	$space_css = Config::get('space.css');
+	if($space_typekit == '') $space_typekit = null;
+	if($space_css == '') $space_css = null;
+?>
+
 <!DOCTYPE html>
 <html lang="{{ \Thinker::getLocaleDisplayed() }}">
 <head>
@@ -11,16 +18,20 @@
 	<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
 	<link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-ipad.png" />
 	<link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-@2x.png" />
-	<meta name="apple-mobile-web-app-title" content="AR-MA" />
+	<meta name="apple-mobile-web-app-title" content="{{ Config::get('space.title') }}" />
 
 	<!--Stylesheets-->
-	<link rel="stylesheet" type="text/css" href="/css/normalize.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<link rel="stylesheet" type="text/css" href="{{ $space_css or '/nonoesp/space/css/space.css?default' }}">
 
+	<!-- CSRF Token -->
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+
+	@if($space_typekit)
 	<!--TypeKit-->
-	<script type="text/javascript" src="//use.typekit.net/{{{ \Config::get('services.typekit.main') }}}.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>	
-		
+	<script type="text/javascript" src="//use.typekit.net/{{ $space_typekit }}.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	@endif
+
 </head>
 
 <body>

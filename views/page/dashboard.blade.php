@@ -2,15 +2,13 @@
 
 <?php
 	$shouldHideMenu = true;
-	$site_title = 'Dashboard — Nono Martínez Alonso';
+	$site_title = 'Dashboard — '.Config::get('space.title');
 	$title = 'Hi there, '.Auth::user()->name.'!';
 ?>
 
 @section('content')
 
 	<p>This is the dashboard.</p>
-
-	<p>Check out how the {{ Html::link('/', 'homepage') }} is looking.</p>
 
 	<p>You can logout {{ Html::link('/'.config('authenticate.exit'), 'here') }}.</p>
 

@@ -2,18 +2,18 @@
 
 <?php
 	$shouldHideMenu = true;
-	$site_title = 'Log In — Nono Martínez Alonso';
+	$site_title = 'Log In — '.Config::get('space.title');
 	$o_band_class = '';
 
 	if(!$title = Session::get('title')) {
-		$title = 'Welcome back, friend.';	
+		$title = 'Welcome back, friend.';
 	}
 
 	$error = Session::get('error');
 	$twitter_handle = Session::get('twitter_handle');
 ?>
 
-@section('content')	
+@section('content')
 
 	@if(!isset($twitter_handle))
 
@@ -24,12 +24,12 @@
 		{{ Form::open(array('url' => $auth_url, 'method' => 'post'))}}
 
 			{{ Form::email('email', Session::get('email'), array('placeholder' => 'Email')) }}
-			{{ Form::password('password', array('placeholder' => 'Password')) }}		
+			{{ Form::password('password', array('placeholder' => 'Password')) }}
 
 			{{ Form::submit('Sign in') }}
 
 			<a href="/twitter/login">{{ Form::button('Sign in with Twitter', array('class' => 'button--twitter')) }}</a>
-			
+
 		{{ Form::close() }}
 
 		<br><br>
