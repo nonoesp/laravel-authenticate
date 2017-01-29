@@ -36,7 +36,7 @@
 
 <body>
 
-<div class="[ o-band  {{ $o_band_class or 'o-band--padding-footer' }} ]">
+<div class="[ o-band ] [ u-pad-t-5x ] ">
 	<div class="[ o-wrap  o-wrap--tiny ]">
 
 {{--

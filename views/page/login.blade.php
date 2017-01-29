@@ -37,7 +37,7 @@
 	@else
 
 		{{ '@'.Session::get('twitter_handle') }} doesn't have privileges.
-		{{ HTML::link('/logout', 'Logout') }}
+		{{ Html::link('/logout', 'Logout') }}
 
 	@endif
 
