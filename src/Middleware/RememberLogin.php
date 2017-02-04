@@ -4,7 +4,7 @@ use Closure;
 use Auth;
 use Authenticate;
 
-class NONRememberMiddleware
+class RememberLogin
 {
     /**
      * Handle an incoming request.
@@ -14,7 +14,7 @@ class NONRememberMiddleware
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {   
+    {
         if(Auth::check() && $user = Auth::user()) {
             // User is logged in via remember (restore session twitter values)
             Authenticate::setTwitterSession($user->twitter);

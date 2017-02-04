@@ -64,12 +64,12 @@ protected $middleware = [
 			/// ...
 			\Illuminate\Session\Middleware\StartSession::class,
 			\Illuminate\View\Middleware\ShareErrorsFromSession::class,			
-			\App\Http\Middleware\NONRememberMiddleware::class,
+			\App\Http\Middleware\RememberLogin::class,
 ];
 
 protected $routeMiddleware = [
 		/// ...
-		'login' => \App\Http\Middleware\NONLoginMiddleware::class,
+		'login' => \App\Http\Middleware\RequireLogin::class,
 		/// ...
 ];
 ```

@@ -12,6 +12,12 @@ class AuthenticateServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Paths
+        $path_views = __DIR__.'/../resources/views';
+        $path_lang = __DIR__.'/../resources/lang';
+        $path_middleware = __DIR__.'/Middleware';
+        $path_config = __DIR__.'/../config/config.php';
+
         // Publish Paths
         $publish_path_views = base_path('resources/views/nonoesp/authenticate');
         $publish_path_middleware = base_path('app/Http/Middleware');
@@ -19,10 +25,12 @@ class AuthenticateServiceProvider extends ServiceProvider
         $publish_path_config = config_path('authenticate.php');
 
         // Publish Stuff
-        $this->publishes([__DIR__.'/../views' => $publish_path_views,], 'views');
-        $this->publishes([__DIR__.'/Middleware' => $publish_path_middleware,], 'middleware');
-        $this->publishes([__DIR__.'/../lang' => $publish_path_lang,], 'lang');
-        $this->publishes([__DIR__.'/../config/config.php' => $publish_path_config,], 'config');
+        $this->publishes([$path_views => $publish_path_views,], 'views');
+        $this->publishes([$path_lang => $publish_path_lang,], 'lang');
+        $this->publishes([$path_middleware => $publish_path_middleware,], 'middleware');
+        $this->publishes([$path_config => $publish_path_config,], 'config');
+
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'authenticate');
 
         // Views
         if (is_dir($publish_path_views)) {
