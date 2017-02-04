@@ -36,14 +36,14 @@ class AuthenticateServiceProvider extends ServiceProvider
         if (is_dir($publish_path_views)) {
             $this->loadViewsFrom($publish_path_views, 'authenticate'); // Load published views
         } else {
-            $this->loadViewsFrom(__DIR__ . '/../views', 'authenticate');
+            $this->loadViewsFrom($path_views, 'authenticate');
         }
 
         // Translations
         if (is_dir($publish_path_lang)) {
             $this->loadTranslationsFrom($publish_path_lang, 'authenticate'); // Load published lang
         } else {
-            $this->loadTranslationsFrom(__DIR__ . '/../lang', 'authenticate');
+            $this->loadTranslationsFrom($path_lang, 'authenticate');
         }
     }
 
