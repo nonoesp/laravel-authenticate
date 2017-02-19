@@ -1,6 +1,6 @@
 <?php
-	$space_typekit = Config::get('space.typekit');
-	$space_css = Config::get('space.css');
+	$space_typekit = config('space.typekit');
+	$space_css = config('space.css');
 	if($space_typekit == '') $space_typekit = null;
 	if($space_css == '') $space_css = null;
 ?>
@@ -18,7 +18,7 @@
 	<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
 	<link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-ipad.png" />
 	<link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-@2x.png" />
-	<meta name="apple-mobile-web-app-title" content="{{ Config::get('space.title') }}" />
+	<meta name="apple-mobile-web-app-title" content="{{ config('space.title') }}" />
 
 	<!--Stylesheets-->
 	<link rel="stylesheet" type="text/css" href="{{ $space_css or '/nonoesp/space/css/space.css?default' }}">
@@ -37,7 +37,7 @@
 <body>
 
 <div class="[ o-band ] [ u-pad-t-5x ] ">
-	<div class="[ o-wrap  o-wrap--tiny ]">
+	<div class="[ o-wrap  o-wrap--size-400 ]">
 
 {{--
 	@if(!isset($shouldHideMenu))
