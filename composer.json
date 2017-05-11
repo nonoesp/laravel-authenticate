@@ -2,12 +2,10 @@
     "name": "nonoesp/authenticate",
     "description": "A Laravel helper package for frequently-used operations—so you don't have to think.",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Nono Martínez Alonso",
-            "email": "mundowarezweb@gmail.com"
-        }
-    ],
+    "authors": [{
+        "name": "Nono Martínez Alonso",
+        "email": "mundowarezweb@gmail.com"
+    }],
     "autoload": {
         "classmap": [
             "src/controllers"
@@ -16,11 +14,10 @@
             "Nonoesp\\Authenticate\\": "src/"
         }
     },
-    "minimum-stability" : "dev",
+    "minimum-stability": "dev",
     "require": {
         "illuminate/support": "~5",
         "nonoesp/thinker": "5.4.*",
-        "thujohn/twitter": "~2.0",
-        "laravelcollective/html": "*"
+        "thujohn/twitter": "~2.0"
     }
 }

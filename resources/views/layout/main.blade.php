@@ -1,8 +1,8 @@
 <?php
-	$space_typekit = config('space.typekit');
-	$space_css = config('space.css');
-	if($space_typekit == '') $space_typekit = null;
-	if($space_css == '') $space_css = null;
+	$folio_typekit = config('folio.typekit');
+	$folio_css = config('folio.css');
+	if($folio_typekit == '') $folio_typekit = null;
+	if($folio_css == '') $folio_css = null;
 ?>
 
 <!DOCTYPE html>
@@ -18,17 +18,17 @@
 	<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
 	<link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-ipad.png" />
 	<link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-@2x.png" />
-	<meta name="apple-mobile-web-app-title" content="{{ config('space.title') }}" />
+	<meta name="apple-mobile-web-app-title" content="{{ config('folio.title') }}" />
 
 	<!--Stylesheets-->
-	<link rel="stylesheet" type="text/css" href="{{ $space_css or '/nonoesp/space/css/space.css?default' }}">
+	<link rel="stylesheet" type="text/css" href="{{ $folio_css or '/nonoesp/folio/css/folio.css?default' }}">
 
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-	@if($space_typekit)
+	@if($folio_typekit)
 	<!--TypeKit-->
-	<script type="text/javascript" src="//use.typekit.net/{{ $space_typekit }}.js"></script>
+	<script type="text/javascript" src="//use.typekit.net/{{ $folio_typekit }}.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	@endif
 

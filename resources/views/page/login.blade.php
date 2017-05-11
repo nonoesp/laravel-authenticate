@@ -2,7 +2,7 @@
 
 <?php
 	$shouldHideMenu = true;
-	$site_title = 'Log In — '.Config::get('space.title');
+	$site_title = 'Log In — '.Config::get('folio.title');
 	$o_band_class = '';
 
 	if(!$title = Session::get('title')) {
@@ -37,7 +37,7 @@
 	@else
 
 		{{ '@'.Session::get('twitter_handle') }} doesn't have privileges.
-		{{ Html::link('/logout', 'Logout') }}
+		<a href="/logout">Logout</a>
 
 	@endif
 
