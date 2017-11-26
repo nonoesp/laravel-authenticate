@@ -8,7 +8,8 @@
     }],
     "autoload": {
         "classmap": [
-            "src/controllers"
+            "src/controllers",
+            "src/facades"
         ],
         "psr-4": {
             "Nonoesp\\Authenticate\\": "src/"
@@ -19,5 +20,15 @@
         "illuminate/support": "~5",
         "nonoesp/thinker": "5.4.*",
         "thujohn/twitter": "~2.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Nonoesp\\Authenticate\\AuthenticateServiceProvider"
+            ],
+            "aliases": {
+                "Authenticate": "Nonoesp\\Authenticate\\Facades\\Authenticate"
+            }
+        }
     }
 }
