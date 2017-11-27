@@ -27,7 +27,7 @@
                 "Nonoesp\\Authenticate\\AuthenticateServiceProvider"
             ],
             "aliases": {
-                "Thinker": "Nonoesp\\Authenticate\\Facades\\Authenticate"
+                "Authenticate": "Nonoesp\\Authenticate\\Facades\\Authenticate"
             }
         }
     }
