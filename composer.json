@@ -25,7 +25,10 @@
         "laravel": {
             "providers": [
                 "Nonoesp\\Authenticate\\AuthenticateServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Thinker": "Nonoesp\\Authenticate\\Facades\\Authenticate"
+            }
         }
     }
 }
