@@ -28,8 +28,6 @@ Route::group(['middleware' => Config::get("authenticate.middlewares")], function
   Route::get('logout', array('as' => 'getLogout', 'uses' => 'Nonoesp\Authenticate\Controllers\AuthController@getLogout'));
 
   // Sample dashboard
-  //Route::get('dashboard', array('before' => [] /*'is_admin'*/, 'as' => 'getDashboard', 'uses' => 'Nonoesp\Authenticate\Controllers\AuthController@getDashboard'));
-
   Route::get('dashboard', ['as' => 'getDashboard', 'uses' => 'Nonoesp\Authenticate\Controllers\AuthController@getDashboard']);
 
   /*----------------------------------------------------------------*/
@@ -41,12 +39,9 @@ Route::group(['middleware' => Config::get("authenticate.middlewares")], function
   Route::get('twitter/error', ['as' => 'twitter.error', 'uses' => 'Nonoesp\Authenticate\Controllers\TwitterController@error']);
 
   /*----------------------------------------------------------------*/
+  /* Temporary URL for debugging Twitter
+  /*----------------------------------------------------------------*/
 
-  // Temporary URL
-
-  Route::get('test', function() {
-    echo "hola";
-  });
   Route::get('twitter/data', function(){
 
       if(Session::get('twitter_handle')) {

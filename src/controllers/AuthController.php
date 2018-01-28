@@ -14,7 +14,15 @@ class AuthController extends Controller {
 	public function getLogin()
 	{
 		if(Auth::check()) {
-			return redirect(config('authenticate.destination'));
+			
+			$entrance_url = \App::make('url')->to(config('authenticate.entrance'));
+			$previous_url = \URL::previous();
+			
+			if($entrance_url == $previous_url) {
+				return redirect(config('authenticate.destination'));
+			} else {
+				return redirect(\URL::previous());
+			}
 		}
 		return view('authenticate::page.login')->with('auth_url', config('authenticate.entrance'));
 	}

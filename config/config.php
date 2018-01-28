@@ -6,7 +6,7 @@ return [
 
 	'exit' => 'logout',
 
-	'destination' => 'dashboard',
+	'destination' => 'admin',
 
 	'middlewares' => ['web'],
 ];
