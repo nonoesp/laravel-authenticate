@@ -10,7 +10,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimal-ui"/>
-	<title>{{ $site_title or 'Admin' }}</title>
+	<title>{{ $site_title ?? 'Admin' }}</title>
 
 	<!--Icon-->
 	<link rel="shortcut icon" href="/img/favicon.png" type="image/png" />
@@ -21,7 +21,7 @@
 	<meta name="apple-mobile-web-app-title" content="{{ config('folio.title') }}" />
 
 	<!--Stylesheets-->
-	<link rel="stylesheet" type="text/css" href="{{ $folio_css or '/nonoesp/folio/css/folio.css?default' }}">
+	<link rel="stylesheet" type="text/css" href="{{ $folio_css ?? '/nonoesp/folio/css/folio.css?default' }}">
 
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
@@ -45,7 +45,7 @@
 	@endif
 --}}
 
-	<h3 class="[ c-admin__title ] [ u-border-bottom ]">{{ $title or 'Admin' }}</h3>
+	<h3 class="[ c-admin__title ] [ u-border-bottom ]">{{ $title ?? 'Admin' }}</h3>
 
 	@yield('content')
 
