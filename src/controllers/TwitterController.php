@@ -52,7 +52,7 @@ class TwitterController extends Controller {
 	    return Redirect::route('twitter.error');
 	}
 
-	public function callback() {
+	public function callback(Request $request) {
 	  	// You should set this route on your Twitter Application settings as the callback
 	    // https://apps.twitter.com/app/YOUR-APP-ID/settings
 	    if (Session::has('oauth_request_token'))
@@ -66,9 +66,9 @@ class TwitterController extends Controller {
 
 	        $oauth_verifier = false;
 
-	        if (Input::has('oauth_verifier'))
+	        if ($request->has('oauth_verifier'))
 	        {
-	            $oauth_verifier = Input::get('oauth_verifier');
+	            $oauth_verifier = $request->input('oauth_verifier');
 	        }
 
 	        // getAccessToken() will reset the token for you

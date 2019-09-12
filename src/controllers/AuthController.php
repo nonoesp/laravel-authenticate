@@ -27,10 +27,10 @@ class AuthController extends Controller {
 		return view('authenticate::page.login')->with('auth_url', config('authenticate.entrance'));
 	}
 
-	public function postLogin()
+	public function postLogin(Request $request)
 	{
-		$email = Input::get('email');
-		$password = Input::get('password');
+		$email = $request->input('email');
+		$password = $request->input('password');
 		$user = User::whereEmail($email)->first();
 
 		if(Auth::attempt(['email' => $email, 'password' => $password], true)) {
