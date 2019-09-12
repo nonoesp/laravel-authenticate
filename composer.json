@@ -18,7 +18,7 @@
     "minimum-stability": "dev",
     "require": {
         "illuminate/support": "~6",
-        "nonoesp/thinker": "1.*",
+        "nonoesp/thinker": "~6",
         "thujohn/twitter": "~2.0"
     },
     "extra": {
