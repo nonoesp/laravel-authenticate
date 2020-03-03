@@ -25,10 +25,6 @@
             <input name="email" type="email" value="{{ session('email') }}" placeholder="Email"/>
             <input name="password" type="password" placeholder="Password"/>
             <button type="submit">Sign in</button>
-            
-            <a href="/twitter/login">
-                <button class="button--twitter" type="button">Sign in with Twitter</button>
-            </a>
 
         </form>
 

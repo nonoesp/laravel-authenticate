@@ -5,13 +5,7 @@
     "authors": [{
         "name": "Nono Martínez Alonso",
         "email": "mundowarezweb@gmail.com"
-    }],
-    "repositories": [   
-        {
-            "type": "vcs",
-            "url": "https://github.com/nonoesp/twitter"
-        }
-    ],    
+    }],   
     "autoload": {
         "classmap": [
             "src/controllers",
@@ -23,9 +17,8 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "illuminate/support": "^7.0",
-        "nonoesp/thinker": "^7.0",
-        "thujohn/twitter": "7.x-dev"
+        "illuminate/support": "^6.0",
+        "nonoesp/thinker": "^6.0"
     },
     "extra": {
         "laravel": {
