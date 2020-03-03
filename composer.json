@@ -6,6 +6,12 @@
         "name": "Nono Martínez Alonso",
         "email": "mundowarezweb@gmail.com"
     }],
+    "repositories": [   
+        {
+            "type": "vcs",
+            "url": "https://github.com/nonoesp/twitter"
+        }
+    ],    
     "autoload": {
         "classmap": [
             "src/controllers",
@@ -19,7 +25,7 @@
     "require": {
         "illuminate/support": "^7.0",
         "nonoesp/thinker": "^7.0",
-        "thujohn/twitter": "^2.2.11"
+        "thujohn/twitter": "7.x-dev"
     },
     "extra": {
         "laravel": {
