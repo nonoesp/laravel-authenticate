@@ -2,12 +2,10 @@
 
 <?php
 	$shouldHideMenu = true;
-	$site_title = 'Log In — '.Config::get('folio.title');
+	$site_title = 'Log In · '.config('folio.title');
 	$o_band_class = '';
 
-	if(!$title = Session::get('title')) {
-		$title = 'Welcome back, friend.';
-	}
+	if(!$title = Session::get('title')) $title = 'Welcome back, friend.';
 
 	$error = Session::get('error');
 	$twitter_handle = Session::get('twitter_handle');
@@ -21,18 +19,20 @@
 		    <p>{{ trans('authenticate::error.'.$error) }}</p>
 		@endif
 
-		{{ Form::open(array('url' => $auth_url, 'method' => 'post'))}}
+        <form action="{{$auth_url}}" method="post" accept-charset="UTF-8">
 
-			{{ Form::email('email', Session::get('email'), array('placeholder' => 'Email')) }}
-			{{ Form::password('password', array('placeholder' => 'Password')) }}
+            <input name="_token" type="hidden" value="{{ csrf_token() }}">
+            <input type="email" value="{{Session::get('email')}}" placeholder="Email"/>
+            <input type="password" placeholder="Password"/>
+            <button type="submit">Sign in</button>
 
-			{{ Form::submit('Sign in') }}
+            <a href="/twitter/login">
+                <button class="button--twitter">Sign in with Twitter</button>
+            </a>
 
-			<a href="/twitter/login">{{ Form::button('Sign in with Twitter', array('class' => 'button--twitter')) }}</a>
+		</form>
 
-		{{ Form::close() }}
-
-		<br><br>
+		<br/><br/>
 
 	@else
 
