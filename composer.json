@@ -16,16 +16,10 @@
         }
     },
     "minimum-stability": "dev",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/jozeflambrecht/twitter"
-        }
-    ],    
     "require": {
-        "illuminate/support": "~6",
-        "nonoesp/thinker": "~6",
-        "thujohn/twitter": "dev-patch-1"
+        "illuminate/support": "^6",
+        "nonoesp/thinker": "^6",
+        "thujohn/twitter": "^2.2.11"
     },
     "extra": {
         "laravel": {
