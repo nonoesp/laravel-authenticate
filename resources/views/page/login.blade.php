@@ -19,18 +19,18 @@
 		    <p>{{ trans('authenticate::error.'.$error) }}</p>
 		@endif
 
-        <form action="{{$auth_url}}" method="post" accept-charset="UTF-8">
+        <form action="{{ $auth_url }}" method="post" accept-charset="UTF-8">
 
             <input name="_token" type="hidden" value="{{ csrf_token() }}">
-            <input type="email" value="{{Session::get('email')}}" placeholder="Email"/>
-            <input type="password" placeholder="Password"/>
+            <input name="email" type="email" value="{{ session('email') }}" placeholder="Email"/>
+            <input name="password" type="password" placeholder="Password"/>
             <button type="submit">Sign in</button>
-
+            
             <a href="/twitter/login">
-                <button class="button--twitter">Sign in with Twitter</button>
+                <button class="button--twitter" type="button">Sign in with Twitter</button>
             </a>
 
-		</form>
+        </form>
 
 		<br/><br/>
 

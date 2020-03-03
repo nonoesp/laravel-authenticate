@@ -24,25 +24,35 @@ class AuthController extends Controller {
 				return redirect(\URL::previous());
 			}
 		}
-		return view('authenticate::page.login')->with('auth_url', config('authenticate.entrance'));
+        return view('authenticate::page.login', [
+            'auth_url' => config('authenticate.entrance'),
+        ]);
 	}
 
 	public function postLogin(Request $request)
 	{
-		$email = $request->input('email');
+        $email_key = 'email';
+
+        // Get form inputs
+		$email = $request->input($email_key);
 		$password = $request->input('password');
 		$user = User::whereEmail($email)->first();
 
-		if(Auth::attempt(['email' => $email, 'password' => $password], true)) {
+        // Keep email
+        session([$email_key => $email]);
+
+		if(Auth::attempt([$email_key => $email, 'password' => $password], true)) {
 			// Save valid email and redirect to dashboard
 			if($twitter_handle = $user->twitter) { 
-				Session::put('twitter_handle', $twitter_handle);
+				session(['twitter_handle' => $twitter_handle]);
 			}
-			Session::put('email', $email);
 
 			return redirect()->intended(config('authenticate.destination'));
 		} else {
-			return Redirect::route('getLogin')->with(array('error' => 'INVALID_CREDENTIALS', 'email' => $email));
+			return Redirect::route('getLogin')->with([
+                'error' => 'INVALID_CREDENTIALS',
+                $email_key => $email
+            ]);
 		}
 	}
 
