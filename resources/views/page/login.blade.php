@@ -21,7 +21,7 @@
 
         <form action="{{ $auth_url }}" method="post" accept-charset="UTF-8">
 
-            <input name="_token" type="hidden" value="{{ csrf_token() }}">
+            @csrf
             <input name="email" type="email" value="{{ session('email') }}" placeholder="Email"/>
             <input name="password" type="password" placeholder="Password"/>
             <button type="submit">Sign in</button>
