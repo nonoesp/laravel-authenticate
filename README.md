@@ -1,52 +1,11 @@
-# An Authentication System for Laravel 5
+# An Authentication System for Laravel
 
-Extremely simple way to authenticate with support for Laravel 5.4.
+Simple authentication for Laravel.
 
 ## Installation
 
-Begin by installing this package through Composer. Edit your project’s `composer.json` file to require `nonoesp/authenticate`.
-
 ```
-"require": {
-	"nonoesp/authenticate": "5.4.*"
-}
-```
-
-Next, update Composer from the Terminal:
-
-```
-composer update
-```
-
-Next, add the new providers to the `providers` array of `config/app.php`:
-
-```
-	'providers' => [
-		// ...
-		// nonoesp/authenticate
-		Nonoesp\Authenticate\AuthenticateServiceProvider::class,          
-		Nonoesp\Thinker\ThinkerServiceProvider::class,  
-		Thujohn\Twitter\TwitterServiceProvider::class,
-		Collective\Html\HtmlServiceProvider::class,
-		// ...
-	],
-```
-
-Then, add the class aliases to the `aliases` array of `config/app.php`:
-
-```
-	'aliases' => [
-		// ...
-		// nonoesp/authenticate
-		'Authenticate' => Nonoesp\Authenticate\Facades\Authenticate::class,
-		'Thinker' => Nonoesp\Thinker\Facades\Thinker::class,
-		'Twitter'   => Thujohn\Twitter\Facades\Twitter::class,
-		'Form' => Collective\Html\FormFacade::class,
-		'Html' => Collective\Html\HtmlFacade::class,
-		'Input' => Illuminate\Support\Facades\Input::class,
-		'User' => 'App\User',     
-		// ...
-	],
+composer require nonoesp/authenticate
 ```
 
 Next, publish the package’s middlewares and add them to the Kernel.php
@@ -74,11 +33,15 @@ protected $routeMiddleware = [
 ];
 ```
 
+<!--
+
 A dependency of this package is `thujon/twitter`, so you will have to publish its config and add your Twitter credentials to `config/ttwitter.php` if you want to be able to log in with Twitter.
 
 ```
 php artisan vendor:publish --provider="Thujohn\Twitter\TwitterServiceProvider"
 ```
+
+-->
 
 ## License
 
@@ -86,4 +49,8 @@ Authenticate is licensed under the MIT license. (http://opensource.org/licenses/
 
 ## Me
 
-I'm [Nono Martínez Alonso](http://nono.ma) (nono.ma), a computational designer with a penchant for design, code, and simplicity. I tweet at [@nonoesp](http://www.twitter.com/nonoesp) and write at [Getting Simple](http://gettingsimple.com/). If you use this package, I would love to hear about it. Thanks!
+Hi. I'm [Nono Martínez Alonso](https://nono.ma/about) (Nono.MA), a computational designer with a penchant for simplicity.
+
+I host [Getting Simple](https://gettingsimple.com)—a podcast about how you can live a meaningful, creative, simple life—[sketch](https://sketch.nono.ma) things that call my attention, and [write](https://gettingsimple.com/writing) about enjoying a slower life.
+
+If you find this pacakge useful in any way, reach out on Twitter at [@nonoesp](https://twitter.com/nonoesp). Cheers!

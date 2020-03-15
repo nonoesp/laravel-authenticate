@@ -34,21 +34,21 @@ Route::group(['middleware' => Config::get("authenticate.middlewares")], function
   /* TwitterController
   /*----------------------------------------------------------------*/
 
-  Route::get('twitter/login', ['as' => 'twitter.login', 'uses' => 'Nonoesp\Authenticate\Controllers\TwitterController@login']);
-  Route::get('twitter/callback', ['as' => 'twitter.callback', 'uses' => 'Nonoesp\Authenticate\Controllers\TwitterController@callback']);
-  Route::get('twitter/error', ['as' => 'twitter.error', 'uses' => 'Nonoesp\Authenticate\Controllers\TwitterController@error']);
+  // Route::get('twitter/login', ['as' => 'twitter.login', 'uses' => 'Nonoesp\Authenticate\Controllers\TwitterController@login']);
+  // Route::get('twitter/callback', ['as' => 'twitter.callback', 'uses' => 'Nonoesp\Authenticate\Controllers\TwitterController@callback']);
+  // Route::get('twitter/error', ['as' => 'twitter.error', 'uses' => 'Nonoesp\Authenticate\Controllers\TwitterController@error']);
 
   /*----------------------------------------------------------------*/
   /* Temporary URL for debugging Twitter
   /*----------------------------------------------------------------*/
 
-  Route::get('twitter/data', function(){
+  // Route::get('twitter/data', function(){
 
-      if(Session::get('twitter_handle')) {
-        echo "Hi, ". Session::get('twitter_handle') .'! '.Html::link('/logout', "logout");      
-      } else {
-        echo "You are not logged! ".Html::link('/twitter/login', "log in").".";
-      }
-  });
+  //     if(Session::get('twitter_handle')) {
+  //       echo "Hi, ". Session::get('twitter_handle') .'! '.Html::link('/logout', "logout");      
+  //     } else {
+  //       echo "You are not logged! ".Html::link('/twitter/login', "log in").".";
+  //     }
+  // });
 
 });
