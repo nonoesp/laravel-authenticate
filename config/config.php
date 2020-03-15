@@ -18,6 +18,6 @@ return [
 
 	'destination' => 'admin',
 
-	'middlewares' => ['web'],
+	'middlewares' => [],
 	
 ];

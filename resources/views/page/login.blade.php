@@ -3,27 +3,22 @@
 <?php
 	$shouldHideMenu = true;
 	$site_title = 'Log In · '.config('folio.title');
-	$o_band_class = '';
-
-	if(!$title = Session::get('title')) $title = 'Welcome back, friend.';
-
-	$error = Session::get('error');
-	$twitter_handle = Session::get('twitter_handle');
+	if(!$title = session('title')) $title = 'Welcome back, friend.';
 ?>
 
 @section('content')
 
-	@if(!isset($twitter_handle))
+	@if(!session('twitter_handle'))
 
-		@if(isset($error))
-		    <p>{{ trans('authenticate::error.'.$error) }}</p>
+		@if(session('error'))
+		    <p style="color: #e36129">{{ trans('authenticate::error.'.session('error')) }}</p>
 		@endif
 
         <form action="{{ $auth_url }}" method="post" accept-charset="UTF-8">
 
             @csrf
-            <input name="email" type="email" value="{{ session('email') }}" placeholder="Email"/>
-            <input name="password" type="password" placeholder="Password"/>
+            <input name="email" type="email" value="{{ session('email') }}" placeholder="Email" @if(!session('email')) autofocus @endif/>
+            <input name="password" type="password" placeholder="Password" @if(session('email')) autofocus @endif/>
             <button type="submit">Sign in</button>
 
         </form>
@@ -32,7 +27,7 @@
 
 	@else
 
-		{{ '@'.Session::get('twitter_handle') }} doesn't have privileges.
+		{{ '@'.session('twitter_handle') }} doesn't have privileges.
 		<a href="/logout">Logout</a>
 
 	@endif

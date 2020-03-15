@@ -1,6 +1,7 @@
 <?php
 
-return array(
+return [
 
-	'INVALID_CREDENTIALS' => 'Invalid email or password.',
-);
+	'INVALID_CREDENTIALS' => 'Invalid email or password',
+
+];

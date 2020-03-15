@@ -17,11 +17,11 @@ Route::group(['middleware' => config("authenticate.middlewares")], function () {
   /*----------------------------------------------------------------*/
 
   // Entrance: Login
-  Route::get(config('authenticate.entrance'), ['as' => 'getLogin', 'uses' => 'Nonoesp\Authenticate\Controllers\AuthController@getLogin']);
+  Route::get(config('authenticate.entrance'), ['as' => 'auth.login', 'uses' => 'Nonoesp\Authenticate\Controllers\AuthController@getLogin']);
   Route::post(config('authenticate.entrance'), 'Nonoesp\Authenticate\Controllers\AuthController@postLogin');
 
   // Exit: Logout
-  Route::get(config('authenticate.exit'), ['as' => 'getLogout', 'uses' => 'Nonoesp\Authenticate\Controllers\AuthController@getLogout']);
+  Route::get(config('authenticate.exit'), ['as' => 'auth.logout', 'uses' => 'Nonoesp\Authenticate\Controllers\AuthController@getLogout']);
 
   // Sample dashboard
   Route::get('dashboard', ['as' => 'getDashboard', 'uses' => 'Nonoesp\Authenticate\Controllers\AuthController@getDashboard']);

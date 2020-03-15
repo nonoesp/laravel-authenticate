@@ -20,9 +20,8 @@ class AuthController extends Controller {
 			
 			if($entrance_url == $previous_url) {
 				return redirect(config('authenticate.destination'));
-			} else {
-				return redirect(\URL::previous());
 			}
+			return redirect(\URL::previous());
 		}
         return view('authenticate::page.login', [
             'auth_url' => config('authenticate.entrance'),
@@ -31,29 +30,23 @@ class AuthController extends Controller {
 
 	public function postLogin(Request $request)
 	{
-        $email_key = 'email';
-
         // Get form inputs
-		$email = $request->input($email_key);
+		$email = $request->input('email');
 		$password = $request->input('password');
-		$user = User::whereEmail($email)->first();
 
         // Keep email
-        session([$email_key => $email]);
+		session(['email' => $email]);
 
-		if(Auth::attempt([$email_key => $email, 'password' => $password], true)) {
-			// Save valid email and redirect to dashboard
+		if(Auth::attempt(['email' => $email, 'password' => $password], true)) {
+			// Get Twitter handle
+			$user = User::whereEmail($email)->first();
 			if($twitter_handle = $user->twitter) { 
 				session(['twitter_handle' => $twitter_handle]);
 			}
-
+			// Redirect to dashboard or intended URL
 			return redirect()->intended(config('authenticate.destination'));
-		} else {
-			return Redirect::route('getLogin')->with([
-                'error' => 'INVALID_CREDENTIALS',
-                $email_key => $email
-            ]);
 		}
+		return redirect(route('auth.login'))->with('error', 'INVALID_CREDENTIALS');
 	}
 
 	public function getLogout()
@@ -70,7 +63,7 @@ class AuthController extends Controller {
 	    $previous = URL::previous();
 	    
 	    if($previous == URL::to('/dashboard')) {
-			return Redirect::route('getLogin')->with('title', 'See you later!');
+			return redirect()->route('auth.login')->with('title', 'See you later!');
 	    }
 
 	    return Redirect::to($previous);

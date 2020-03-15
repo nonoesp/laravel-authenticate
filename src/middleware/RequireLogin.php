@@ -17,7 +17,8 @@ class RequireLogin
      */
     public function handle($request, Closure $next)
     {
-        if(!Auth::check()) {
+        // temp-auth is for cross-domain one-request auth of hidden posts
+        if(!Auth::check() && session('temp-auth') == null) {
             Session::put('twitter_intended', URL::current());
             return Redirect::guest( '/'.config('authenticate.entrance') );
         }
