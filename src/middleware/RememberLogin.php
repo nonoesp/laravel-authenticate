@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Middleware;
+namespace Nonoesp\Authenticate\Middleware;
 use Closure;
 use Auth;
 use Authenticate;

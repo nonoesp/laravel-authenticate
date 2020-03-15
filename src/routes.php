@@ -10,17 +10,17 @@ use Route,
     Article,
     Markdown;
 
-Route::group(['middleware' => config("authenticate.middlewares")], function () {
+Route::group(['middleware' => config('authenticate.middlewares')], function () {
 
   /*----------------------------------------------------------------*/
   /* AuthController
   /*----------------------------------------------------------------*/
 
-  // Entrance: Login
+  // Login
   Route::get(config('authenticate.entrance'), ['as' => 'auth.login', 'uses' => 'Nonoesp\Authenticate\Controllers\AuthController@getLogin']);
   Route::post(config('authenticate.entrance'), 'Nonoesp\Authenticate\Controllers\AuthController@postLogin');
 
-  // Exit: Logout
+  // Logout
   Route::get(config('authenticate.exit'), ['as' => 'auth.logout', 'uses' => 'Nonoesp\Authenticate\Controllers\AuthController@getLogout']);
 
   /*----------------------------------------------------------------*/
