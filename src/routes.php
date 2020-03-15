@@ -10,22 +10,18 @@ use Route,
     Article,
     Markdown;
 
-Route::group(['middleware' => Config::get("authenticate.middlewares")], function () {
+Route::group(['middleware' => config("authenticate.middlewares")], function () {
 
   /*----------------------------------------------------------------*/
   /* AuthController
   /*----------------------------------------------------------------*/
 
-  $entrance = config('authenticate.entrance');
-  $exit = config('authenticate.exit');
-  $destination = config('authenticate.destination');
-
   // Entrance: Login
-  Route::get(config('authenticate.entrance'), array('as' => 'getLogin', 'uses' => 'Nonoesp\Authenticate\Controllers\AuthController@getLogin'));
+  Route::get(config('authenticate.entrance'), ['as' => 'getLogin', 'uses' => 'Nonoesp\Authenticate\Controllers\AuthController@getLogin']);
   Route::post(config('authenticate.entrance'), 'Nonoesp\Authenticate\Controllers\AuthController@postLogin');
 
   // Exit: Logout
-  Route::get('logout', array('as' => 'getLogout', 'uses' => 'Nonoesp\Authenticate\Controllers\AuthController@getLogout'));
+  Route::get(config('authenticate.exit'), ['as' => 'getLogout', 'uses' => 'Nonoesp\Authenticate\Controllers\AuthController@getLogout']);
 
   // Sample dashboard
   Route::get('dashboard', ['as' => 'getDashboard', 'uses' => 'Nonoesp\Authenticate\Controllers\AuthController@getDashboard']);
