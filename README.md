@@ -8,13 +8,7 @@ Simple authentication for Laravel.
 composer require nonoesp/authenticate
 ```
 
-Next, publish the package’s middlewares and add them to the Kernel.php
-
-```
-php artisan vendor:publish --provider="Nonoesp\Authenticate\AuthenticateServiceProvider" --tag=middleware
-```
-
-Lastly, add the following middlewares to your `app/Http/Kernel.php` file.
+Next, add the following middlewares to your `app/Http/Kernel.php` file.
 
 - `LoginMiddleware` · restricts routes to logged users
 - `RememberMiddleware` · remembers logged users
@@ -22,15 +16,16 @@ Lastly, add the following middlewares to your `app/Http/Kernel.php` file.
 ```php
 protected $middleware = [
         /// nonoesp/authenticate
+        // TODO - verify we need these first two here
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,			
-        \App\Http\Middleware\RememberLogin::class,        
+        \Nonoesp\Authenticate\Middleware\RememberLogin::class,        
         /// ...
 ];
 
 protected $routeMiddleware = [
         /// nonoesp/authenticate
-        'login' => \App\Http\Middleware\RequireLogin::class,
+        'login' => \Nonoesp\Authenticate\Middleware\RequireLogin::class,
         /// ...
 ];
 ```
