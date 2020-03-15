@@ -69,7 +69,4 @@ class AuthController extends Controller {
 	    return Redirect::to($previous);
 	}
 
-	public function getDashboard() {
-		return view('authenticate::page.dashboard');
-	}
 }

@@ -23,9 +23,6 @@ Route::group(['middleware' => config("authenticate.middlewares")], function () {
   // Exit: Logout
   Route::get(config('authenticate.exit'), ['as' => 'auth.logout', 'uses' => 'Nonoesp\Authenticate\Controllers\AuthController@getLogout']);
 
-  // Sample dashboard
-  Route::get('dashboard', ['as' => 'getDashboard', 'uses' => 'Nonoesp\Authenticate\Controllers\AuthController@getDashboard']);
-
   /*----------------------------------------------------------------*/
   /* TwitterController
   /*----------------------------------------------------------------*/
