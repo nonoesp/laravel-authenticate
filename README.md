@@ -1,4 +1,4 @@
-# An Authentication System for Laravel
+# Laravel authentication package
 
 Simple authentication for Laravel.
 
@@ -33,6 +33,12 @@ protected $routeMiddleware = [
         'login' => \App\Http\Middleware\RequireLogin::class,
         /// ...
 ];
+```
+
+Optionally, publish and customize [configuration file](config/config.php).
+
+```
+php artisan vendor:publish --provider="Nonoesp\Authenticate\AuthenticateServiceProvider" --tag=config
 ```
 
 <!--
