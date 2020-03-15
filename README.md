@@ -14,22 +14,24 @@ Next, publish the package’s middlewares and add them to the Kernel.php
 php artisan vendor:publish --provider="Nonoesp\Authenticate\AuthenticateServiceProvider" --tag=middleware
 ```
 
-Use the `NONLoginMiddleware` to the routes you want to restrict to logged-user access.
+Lastly, add the following middlewares to your `app/Http/Kernel.php` file.
 
-Inside `app/Http/Kernel.php` add the following to create the `NONLoginMiddleware` alias, and to make the `NONRememberMiddleware` run before every request:
+- `LoginMiddleware` · restricts routes to logged users
+- `RememberMiddleware` · remembers logged users
 
 ```php
 protected $middleware = [
-			/// ...
-			\Illuminate\Session\Middleware\StartSession::class,
-			\Illuminate\View\Middleware\ShareErrorsFromSession::class,			
-			\App\Http\Middleware\RememberLogin::class,
+        /// nonoesp/authenticate
+        \Illuminate\Session\Middleware\StartSession::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,			
+        \App\Http\Middleware\RememberLogin::class,        
+        /// ...
 ];
 
 protected $routeMiddleware = [
-		/// ...
-		'login' => \App\Http\Middleware\RequireLogin::class,
-		/// ...
+        /// nonoesp/authenticate
+        'login' => \App\Http\Middleware\RequireLogin::class,
+        /// ...
 ];
 ```
 
